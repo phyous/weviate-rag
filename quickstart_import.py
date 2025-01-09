@@ -16,9 +16,8 @@ questions = client.collections.create(
     vectorizer_config=Configure.Vectorizer.text2vec_openai(     # Configure the openai embedding integration
         model="text-embedding-3-small"
     ),
-    generative_config=Configure.Generative.anthropic(              # Configure the anthropic generative integration
-        model="claude-3-5-sonnet",                               # The model to use
-        max_tokens=1000,
+    generative_config=Configure.Generative.openai(             
+        model="gpt-4o",                               
     )
 )
 

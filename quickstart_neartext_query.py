@@ -13,5 +13,8 @@ try:
     print(response.generated)  # Inspect the generated text
 except Exception as e:
     print(f"Error: {e}")
+    # print stacktrace
+    import traceback
+    traceback.print_exc()
 finally:
     client.close()  # Free up resources
