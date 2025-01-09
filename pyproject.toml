@@ -1,0 +1,15 @@
+[tool.poetry]
+name = "weviate-rag"
+version = "0.1.0"
+description = ""
+authors = ["Philip Youssef <philip.youssef@gmail.com>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.13"
+weaviate-client = "^4.10.2"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
