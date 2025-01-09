@@ -8,6 +8,8 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.13"
 weaviate-client = "^4.10.2"
+openai = "^1.59.5"
+requests = "^2.32.3"
 
 
 [build-system]
