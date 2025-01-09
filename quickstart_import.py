@@ -1,8 +1,6 @@
-from typing import Dict
-import weaviate
 import requests, json
 import logging
-import os
+from weaviate.classes.config import Configure
 
 from helpers import create_client
 # Set up logging
@@ -10,6 +8,19 @@ logging.basicConfig(level=logging.INFO)
 logger = logging.getLogger(__name__)
 
 client = create_client()
+
+client.collections.delete("Question")
+
+questions = client.collections.create(
+    name="Question",
+    vectorizer_config=Configure.Vectorizer.text2vec_openai(     # Configure the openai embedding integration
+        model="text-embedding-3-small"
+    ),
+    generative_config=Configure.Generative.anthropic(              # Configure the anthropic generative integration
+        model="claude-3-5-sonnet",                               # The model to use
+        max_tokens=1000,
+    )
+)
 
 resp = requests.get(
     "https://raw.githubusercontent.com/weaviate-tutorials/quickstart/main/data/jeopardy_tiny.json"
